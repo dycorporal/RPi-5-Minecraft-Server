@@ -15,7 +15,7 @@ the occasional Playit.gg latency/connection.
 	- **Server Diagnostics Command** : Tracks real-time CPU Temperature and RAM Allocation/Usage IN-GAME. Has a command cooldown.
 	- **Timed Server Shutdown Command** : A structured, scheduled server shutdown command in minutes, broadcasting to the server in intervals and even using Kernel Commands to shut down the Pi.
 	- **Mob Variants** : Special listener for Mobs, turned Zombies and Skeletons into special enemies which required different strategies to beat, of which could be listed by the Moblore command.
-	- **Projectile Listener** : Special listener for Arrows, which allowed for the special Skeletons and special Bows by Username and Item Name validation checks.
+	- **Projectile Listener** : Special listener for Arrows, which allowed for the special Skeletons and special Bows by Username and Item Name validation checks. For example, explosive arrows were added dependent on username and itemname of the Player entity firing them.
 
 2. ***Python Discord Bot (derrickwhitebot.py)***
 	- Connects via Discord Developer Portal API to be used to view current server players, and if the server was on.
@@ -74,10 +74,10 @@ To set up the Discord Bot, head to the Discord Developer Portal and create one, 
 
 ### Cons:
 - This was coded from piecing tutorials and documentation together, as I'd never coded in Java prior.
-- **MAJOR SECURITY RISK** - Whilst I don't know too much about the frameworks I used, allowing minecraft commands to trigger kernel commands such as sudo shutdown could be potentially very dangerous.
+- **SECURITY RISK** - Whilst I don't know too much about the frameworks I used, allowing minecraft commands to trigger kernel commands such as sudo shutdown could be potentially very dangerous.
 - **ANOTHER SECURITY RISK** - The Discord Bot could also talk directly to the Server and could be another security risk.
 - **Stress Testing with 8GB** was tested, and even at peak usage, the server never really demanded more than 8GB to begin with. However this could be biased as I was virtually limiting allocation of RAM to the server.jar file of which the actual system had more, and this could potentially not work on older models of Raspberry Pis due to the difference in specs all-around, not just RAM.
-- **RPi5 is fundamentally different to RPi4** and prior so installation may be specific to RPi5 Model. I remember some GPIO libraries are different from RPi4 to RPi5 so keep this in mind.
+- **RPi5 is fundamentally different to RPi4 and previous models** and prior so installation may be specific to RPi5 Model. I remember some GPIO libraries are different from RPi4 to RPi5 so keep this in mind. They also handle GPIO and I2C much differently.
 - **No Real Permission Levels** which could be implemented using LuckyPerms. Relied on just Operator status which technically could be very unsecure.
 - **QoL was Poor** The server shutdown command, would've needed a way to see that shutdown time in a command available to everyone. I didn't code this, but this is very useful for QoL in future development.
 - Ensure you have any Java Dependencies, and I'm sorry for not listing them.
@@ -85,11 +85,11 @@ To set up the Discord Bot, head to the Discord Developer Portal and create one, 
 
 # --**WHAT TO DO**--
 
-1. Overclock your RPi5. Go to /boot/firmware/config.txt and add these flags via sudo nano:
+1. Overclock your RPi5. Go to `/boot/firmware/config.txt` and add these flags via sudo nano:
   `over_voltage=2 arm_freq = 2800`
    This makes it have more voltage than usual and run at a higher GHz/Clock Speed (2.8GHz). This is a safe threshold so increase at your own risk.
    
-3. On the RPi5, download these dependencies (these might not be all of them, sorry). pip install discord mcrcon smbus2
+3. On the RPi5, download these dependencies (these might not be all of them, sorry). `pip install discord mcrcon smbus2`
 
 4. You can manipulate fan thresholds via something like this:
    `dtparam=fan_temp0=40000
@@ -121,9 +121,12 @@ To set up the Discord Bot, head to the Discord Developer Portal and create one, 
 ## Notes for Future Development
 With IntelliJ IDEA CE, I also utilised Java with Maven to package .jar files. 
 
-I doubt I will work on this project any further but technically speaking I was planning to experiment with variant mobs more, such as make a zombie that would explode into lingering poison when you killed them, to represent a Boomer/Ticker from Left 4 Dead/Reason 2 Die. I was also thinking of making a Zombie that split into 2 daughter zombies on death and naming it *Fission Zombie*.
-Lastly, a *Swarmer* Zombie which could summon hostile Bee's that were already angry at any players in the server. They would have a Hive on their head and cause Slow on hit.
+I doubt I will work on this project any further, but some more polymorphic mob variants were supposed to be added:
+- *Fission Zombie*, this zombie would split into 2 Daughter Zombies on defeat.
+- *Ticker/Boomer*, this zombie would summon a lingering cloud of poison on defeat.
+- *Swarmer*, this zombie could summon hostile Bee's angry at players in the server. Hive on their head and cause Slow on hit.
+- *Firecracker*, this Pillager just had increased range attributes and a firework reserve instead of arrows.
 
 For anyone willing to continue this (doubt it), for more QoL, I would:
 - As I said, make an all-player accessible command that outputs a private message to the user who called it, when the server is shutting down. If it wasn't then just output something along the lines of "No shutdown scheduled". Add a cooldown on this.
-- Actually add and implement permissions. I was too lazy to use LuckyPerms, but permissions were in my plugin code anyways.
+- Actually add and implement permissions. Use of LuckyPerms would be great, but permissions were in my plugin code anyways.
