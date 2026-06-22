@@ -130,3 +130,4 @@ I doubt I will work on this project any further, but some more polymorphic mob v
 For anyone willing to continue this (doubt it), for more QoL, I would:
 - As I said, make an all-player accessible command that outputs a private message to the user who called it, when the server is shutting down. If it wasn't then just output something along the lines of "No shutdown scheduled". Add a cooldown on this.
 - Actually add and implement permissions. Use of LuckyPerms would be great, but permissions were in my plugin code anyways.
+- I'd imagine data logging could be manipulated to somehow track more advanced server diagnostics and telemetry over time, such as reporting data to a database then analysing this via a spreadsheet or something to do with Matplotlib, to create graphs and show peak usage times, etc. 
