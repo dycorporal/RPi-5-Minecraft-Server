@@ -1,0 +1,27 @@
+name: Dcplugin
+version: '1.0'
+main: org.tuffplugin.dcplugin.Dcplugin
+api-version: '1.21'
+load: STARTUP
+authors: [ DYC ]
+description: Custom Plug-in designed by DYC. This Plug-in was developed for a test server running on a RPI5.
+
+commands:
+  measureServer:
+    description: Outputs server CPU temperature and RAM usage. (RPI5 Compatible)
+    usage: /measureServer, /mS
+    aliases:
+      - mS
+      - temp
+  fly:
+    description: Enables user to fly, regardless of gamemode
+    usage: /fly
+    aliases:
+      - f
+  mobLore:
+    description: Checks mob lore about a custom mob. Has tab completion.
+    usage: /mobLore <mob name>, e.g. /mobLore Enhanced Zombie
+  shutdown:
+    description: Shuts down RPI5 Server using runtime and /stop. Will save server using /stop before shutting Pi down.
+    permission: tutorial.shutdown
+    usage: /shutdown <minutes> e.g. /shutdown 60 = one hour shutdown
