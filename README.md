@@ -78,10 +78,10 @@ To set up the Discord Bot, head to the Discord Developer Portal and create one, 
 - **ANOTHER SECURITY RISK** - The Discord Bot could also talk directly to the Server and could be another security risk.
 - **Stress Testing with 8GB** was tested, and even at peak usage, the server never really demanded more than 8GB to begin with. However this could be biased as I was virtually limiting allocation of RAM to the server.jar file of which the actual system had more, and this could potentially not work on older models of Raspberry Pis due to the difference in specs all-around, not just RAM.
 - **RPi5 is fundamentally different to RPi4** and prior so installation may be specific to RPi5 Model. I remember some GPIO libraries are different from RPi4 to RPi5 so keep this in mind.
-- **No Real Permission Levels** which could be implemented using LuckyPerms. Relied on just Operator status which technically is more secure in itself?
+- **No Real Permission Levels** which could be implemented using LuckyPerms. Relied on just Operator status which technically could be very unsecure.
 - **QoL was Poor** The server shutdown command, would've needed a way to see that shutdown time in a command available to everyone. I didn't code this, but this is very useful for QoL in future development.
-- I DO NOT KNOW ALL OF THE JAVA DEPENDENCIES SO YOU WILL HAVE TO DOWNLOAD THEM FOR PLUGIN DEVELOPMENT/USE
-- This wasn't a AI Super Start-Up Ultra Buzzword Project to put on a personal statement.
+- Ensure you have any Java Dependencies, and I'm sorry for not listing them.
+- This wasn't a AI Super Start-Up Ultra Buzzword Project to put on a personal statement, and was made after my deadline...
 
 # --**WHAT TO DO**--
 
