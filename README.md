@@ -117,4 +117,13 @@ To set up the Discord Bot, head to the Discord Developer Portal and create one, 
 	So replace <server-jar-file>.jar with whatever your server.jar file is called.
 
 9. Hopefully it works. When running, use chunky to pre-load some chunks pre-hand and the server should operate quite well.
-	
+
+## Notes for Future Development
+With IntelliJ IDEA CE, I also utilised Java with Maven to package .jar files. 
+
+I doubt I will work on this project any further but technically speaking I was planning to experiment with variant mobs more, such as make a zombie that would explode into lingering poison when you killed them, to represent a Boomer/Ticker from Left 4 Dead/Reason 2 Die. I was also thinking of making a Zombie that split into 2 daughter zombies on death and naming it *Fission Zombie*.
+Lastly, a *Swarmer* Zombie which could summon hostile Bee's that were already angry at any players in the server. They would have a Hive on their head and cause Slow on hit.
+
+For anyone willing to continue this (doubt it), for more QoL, I would:
+- As I said, make an all-player accessible command that outputs a private message to the user who called it, when the server is shutting down. If it wasn't then just output something along the lines of "No shutdown scheduled". Add a cooldown on this.
+- Actually add and implement permissions. I was too lazy to use LuckyPerms, but permissions were in my plugin code anyways.
